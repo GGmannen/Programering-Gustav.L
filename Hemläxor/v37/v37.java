@@ -28,7 +28,12 @@ public class v37{
 		System.out.println("Ange ditt telefonnummer");
 		String Nummer = input.nextLine();
 		
-	
+		System.out.println("Ditt namn: " + " \t " + Namn);
+		System.out.println("Din ålder: "  + " \t " + Ålder);
+		System.out.println("Din adress: " + " \t "  + Adress);
+		System.out.println("Din postkod: " + " \t "  + Postkod);
+		System.out.println("Din hemstad: " + " \t "  + Stad);
+		System.out.println("Ditt nummer: " + " \t "  + Nummer);
 		
 	
 	}
