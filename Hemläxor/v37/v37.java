@@ -16,6 +16,8 @@ public class v37{
 		System.out.println("Hur gammal är du?");
 		int Ålder = input.nextInt();
 		
+		System.out.println("Vilken adress bor du på?");
+		String Adress = input.nextLine();
 		
 		
 		
