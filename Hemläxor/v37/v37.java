@@ -14,12 +14,21 @@ public class v37{
 		 */
 		
 		System.out.println("Hur gammal är du?");
-		int Ålder = input.nextInt();
+		String Ålder = input.nextLine();
 		
 		System.out.println("Vilken adress bor du på?");
 		String Adress = input.nextLine();
 		
+		System.out.println("Vad är din postkod?");
+		String Postkod = input.nextLine();
 		
+		System.out.println("Vilken stad bor du i?");
+		String Stad = input.nextLine();
+		
+		System.out.println("Ange ditt telefonnummer");
+		String Nummer = input.nextLine();
+		
+	
 		
 	
 	}
