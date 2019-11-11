@@ -7,6 +7,7 @@ public class Java_PhysicsLibrary {
 		
 		
 		System.out.println(fahrenheitToCelsius(50.0));
+		System.out.println(kelvinToCelsius(0.0));
 		
 		
 	}
@@ -16,5 +17,14 @@ public class Java_PhysicsLibrary {
 		return celcius;
 	
 	}
+	
+	
+	//Metod för att konvertera kelvin till celsius
+	public static double kelvinToCelsius(double kelvin) {
+		double celcius = (kelvin-273.15);
+		return celcius;
+		
+	}
+	
 	
 }
