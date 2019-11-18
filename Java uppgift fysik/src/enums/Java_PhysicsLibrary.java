@@ -12,6 +12,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(fluidPressure(FluidTable.WATER, 10));
 		System.out.println(pressureUnderWater(10.0));
 		System.out.println(kineticEnergy(2,2));
+		System.out.println(potentialEnergy(2,5));
 		
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -52,6 +53,17 @@ public class Java_PhysicsLibrary {
 		return kineticEnergy;
 		
 	}
+	
+	
+	public static double potentialEnergy(double mass, double height) {
+		
+		return mass * 9.82 * height;
+		
+		
+	}
+	
+	
+	
 	
 	
 }
