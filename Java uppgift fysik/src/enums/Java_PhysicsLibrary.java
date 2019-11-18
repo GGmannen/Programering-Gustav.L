@@ -10,6 +10,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(fahrenheitToCelsius(50.0));
 		System.out.println(kelvinToCelsius(0.0));
 		System.out.println(fluidPressure(FluidTable.WATER, 10));
+		System.out.println(pressureUnderWater(10.0));
 		
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -34,5 +35,17 @@ public class Java_PhysicsLibrary {
 		
 		
 	}
+	
+	
+	public static double pressureUnderWater(double deep) {
+		
+		double pressureUnder = FluidTable.WATER.density * 9.82 * deep;
+		return pressureUnder;
+		
+		
+	}
+	
+	
+	
 	
 }
