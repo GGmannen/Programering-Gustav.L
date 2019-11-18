@@ -11,6 +11,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(kelvinToCelsius(0.0));
 		System.out.println(fluidPressure(FluidTable.WATER, 10));
 		System.out.println(pressureUnderWater(10.0));
+		System.out.println(kineticEnergy(2,2));
 		
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -45,7 +46,12 @@ public class Java_PhysicsLibrary {
 		
 	}
 	
-	
+	public static double kineticEnergy(double mass, double velocity) {
+		
+		double kineticEnergy = (mass * Math.pow(velocity, 2)) / 2;
+		return kineticEnergy;
+		
+	}
 	
 	
 }
