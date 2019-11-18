@@ -14,7 +14,7 @@ public enum FluidTable {
 	double steamEntalpy;
 	
 	FluidTable(double d, double hc, double sp, double bp, double se) {
-		density = d * 1E3;
+		density = d * 1E3;	
 		heatCapacity = hc * 1E3;
 		meltPoint = sp;
 		boilPoint = bp;

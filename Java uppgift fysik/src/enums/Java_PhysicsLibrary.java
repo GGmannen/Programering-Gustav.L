@@ -1,3 +1,4 @@
+package enums;
 import java.util.Scanner;
 
 public class Java_PhysicsLibrary {
@@ -8,7 +9,7 @@ public class Java_PhysicsLibrary {
 		
 		System.out.println(fahrenheitToCelsius(50.0));
 		System.out.println(kelvinToCelsius(0.0));
-		
+		System.out.println(fluidPressure(FluidTable.WATER, 10));
 		
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -26,5 +27,12 @@ public class Java_PhysicsLibrary {
 		
 	}
 	
+	public static double fluidPressure(FluidTable fluid, double deep) {
+		
+		 double pressure = (fluid.density * 9.82 * deep);
+	     return pressure;
+		
+		
+	}
 	
 }
