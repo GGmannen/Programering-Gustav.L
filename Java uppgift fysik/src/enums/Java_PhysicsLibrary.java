@@ -13,6 +13,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(pressureUnderWater(10.0));
 		System.out.println(kineticEnergy(2,2));
 		System.out.println(potentialEnergy(2,5));
+		System.out.println(fallSpeed(2.5));
 		
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -63,7 +64,17 @@ public class Java_PhysicsLibrary {
 	}
 	
 	
-	
+	public static double fallSpeed(double height) {
+		
+		return Math.sqrt(2 * 9.82 * height);
+				
+				
+				
+				
+				
+		
+		
+	}
 	
 	
 }
