@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Java_PhysicsLibrary {
 
+	static double g_swe = 9.82;
 	
 	public static void main(String[] args) {
 		
@@ -14,7 +15,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(kineticEnergy(2,2));
 		System.out.println(potentialEnergy(2,5));
 		System.out.println(fallSpeed(2.5));
-		
+		System.out.println(delta(5,1));
 	}
 	//Metod för att konvertera fahrenheit till celsius
 	public static double fahrenheitToCelsius (double farenheit) {
@@ -33,7 +34,7 @@ public class Java_PhysicsLibrary {
 	
 	public static double fluidPressure(FluidTable fluid, double deep) {
 		
-		 double pressure = (fluid.density * 9.82 * deep);
+		 double pressure = (fluid.density * g_swe * deep);
 	     return pressure;
 		
 		
@@ -42,7 +43,7 @@ public class Java_PhysicsLibrary {
 	
 	public static double pressureUnderWater(double deep) {
 		
-		double pressureUnder = FluidTable.WATER.density * 9.82 * deep;
+		double pressureUnder = FluidTable.WATER.density * g_swe * deep;
 		return pressureUnder;
 		
 		
@@ -58,7 +59,7 @@ public class Java_PhysicsLibrary {
 	
 	public static double potentialEnergy(double mass, double height) {
 		
-		return mass * 9.82 * height;
+		return mass * g_swe * height;
 		
 		
 	}
@@ -66,15 +67,15 @@ public class Java_PhysicsLibrary {
 	
 	public static double fallSpeed(double height) {
 		
-		return Math.sqrt(2 * 9.82 * height);
+		return Math.sqrt(2 * g_swe * height);
 				
-				
-				
-				
-				
+	}
+	
+	public static double delta(double first, double last) {
+		
+		return last - first;
+		
 		
 		
 	}
-	
-	
 }
