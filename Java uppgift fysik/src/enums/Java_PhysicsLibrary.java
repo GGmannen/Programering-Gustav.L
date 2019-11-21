@@ -16,6 +16,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(potentialEnergy(2,5));
 		System.out.println(fallSpeed(2.5));
 		System.out.println(delta(5,1));
+		System.out.println(volumeToMass(FluidTable.WATER,1));
 	}
 	//Metod för att konvertera fahrenheit till celsius
 	public static double fahrenheitToCelsius (double farenheit) {
@@ -75,7 +76,14 @@ public class Java_PhysicsLibrary {
 		
 		return last - first;
 		
+	}
+	
+	public static double volumeToMass(FluidTable fluid, double volume) {
+		
+		return 	fluid.density / volume;
 		
 		
 	}
+	
+	
 }
