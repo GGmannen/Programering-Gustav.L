@@ -19,6 +19,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(volumeToMass(FluidTable.WATER,1));
 		System.out.println(volumeToMassGas(GasTable.AIR,1));
 		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
+		System.out.println(svtVelocity(10,5));
 	}
 	//Metod för att konvertera fahrenheit till celsius
 	public static double fahrenheitToCelsius (double farenheit) {
@@ -95,6 +96,12 @@ public class Java_PhysicsLibrary {
 	public static double volumeToMassSolid(SolidTable solid, double volume) {
 		
 		return solid.density * volume;
+		
+	}
+	
+	public static double svtVelocity(double distance, double time) {
+		
+		return distance / time;
 		
 	}
 }
