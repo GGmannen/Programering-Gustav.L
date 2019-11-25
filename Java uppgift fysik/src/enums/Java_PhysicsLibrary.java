@@ -27,6 +27,7 @@ public class Java_PhysicsLibrary {
 		System.out.println(heatSolid(SolidTable.IRON,1,2));
 		System.out.println(heatFluid(FluidTable.WATER,1,10));
 		System.out.println(heatGas(GasTable.AIR,1,1));
+		System.out.println(velocityToHeight(9.82));
 			
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -156,4 +157,9 @@ public class Java_PhysicsLibrary {
 		
 	}
 	
+	public static double velocityToHeight(double velocity) {
+		
+		return Math.pow(velocity, 2) / (2*g_swe);
+		
+	}
 }
