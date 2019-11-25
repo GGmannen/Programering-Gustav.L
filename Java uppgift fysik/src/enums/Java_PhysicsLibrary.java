@@ -24,6 +24,8 @@ public class Java_PhysicsLibrary {
 		System.out.println(svtTime(10,2));
 		System.out.println(work(50,10));
 		System.out.println(power(1000,2));
+		System.out.println(heatSolid(SolidTable.IRON,1,2));
+			
 	}
 	//Metod för att konvertera fahrenheit till celsius
 	public static double fahrenheitToCelsius (double farenheit) {
@@ -134,4 +136,9 @@ public class Java_PhysicsLibrary {
 		
 	}
 	
+	public static double heatSolid(SolidTable solid, double mass, double deltaT) {
+		
+		return solid.heatCapacity * mass * deltaT;
+		
+	}
 }
