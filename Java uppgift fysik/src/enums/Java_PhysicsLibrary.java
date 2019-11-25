@@ -8,6 +8,8 @@ public class Java_PhysicsLibrary {
 	public static void main(String[] args) {
 		
 		
+		System.out.println("Järn väger:" + "\t" + volumeToMassSolid(SolidTable.IRON, 0.06));
+		
 		System.out.println(fahrenheitToCelsius(50.0));
 		System.out.println(kelvinToCelsius(0.0));
 		System.out.println(fluidPressure(FluidTable.WATER, 10));
@@ -28,6 +30,8 @@ public class Java_PhysicsLibrary {
 		System.out.println(heatFluid(FluidTable.WATER,1,10));
 		System.out.println(heatGas(GasTable.AIR,1,1));
 		System.out.println(velocityToHeight(9.82));
+		
+		
 			
 	}
 	//Metod för att konvertera fahrenheit till celsius
@@ -159,7 +163,7 @@ public class Java_PhysicsLibrary {
 	
 	public static double velocityToHeight(double velocity) {
 		
-		return Math.pow(velocity, 2) / (2*g_swe);
+		return Math.pow(velocity, 2) / (2*g_swe);	
 		
 	}
 }
