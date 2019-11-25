@@ -8,7 +8,12 @@ public class Java_PhysicsLibrary {
 	public static void main(String[] args) {
 		
 		
-		System.out.println("Järn väger:" + "\t" + volumeToMassSolid(SolidTable.IRON, 0.06));
+		System.out.println("Järn väger:" + "\t" + volumeToMassSolid(SolidTable.IRON, 0.06) + "kg");
+		System.out.println("Thomas hinner:" + "\t" + svtDistance(2.7, 3000) + "m");
+		System.out.println("Energi till vatten:" + "\t" + heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint) + "J");
+		
+		
+		
 		
 		System.out.println(fahrenheitToCelsius(50.0));
 		System.out.println(kelvinToCelsius(0.0));
