@@ -153,7 +153,7 @@ public class Java_PhysicsLibrary {
 	 * This method converts the volume of a gas to a mass
 	 * @param gas the value of the gas
 	 * @param volume the volume of this gas
-	 * @return Returns the convertec volume in a mass
+	 * @return Returns the converted volume of the gas in a mass
 	 */
 	public static double volumeToMassGas(GasTable gas, double volume) {
 		
@@ -161,10 +161,10 @@ public class Java_PhysicsLibrary {
 		
 	}
 	/**
-	 * 
-	 * @param solid
-	 * @param volume
-	 * @return
+	 * A method that changes a the volume of a material to a mass
+	 * @param solid The value of the material
+	 * @param volume The volume of the material
+	 * @return Returns the converted volume of the material in a mass
 	 */
 	public static double volumeToMassSolid(SolidTable solid, double volume) {
 		
