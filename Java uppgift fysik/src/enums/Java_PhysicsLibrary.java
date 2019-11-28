@@ -171,56 +171,103 @@ public class Java_PhysicsLibrary {
 		return solid.density * volume;
 		
 	}
-	
+	/**
+	 * A method that calculates averages speed using distance and time
+	 * @param distance the specific distance
+	 * @param time the specific time
+	 * @return Returns the now calculated velocity
+	 */
 	public static double svtVelocity(double distance, double time) {
 		
 		return distance / time;
 		
 	}
-	
+	/**
+	 * This method calculates the distance using speed and time
+	 * @param velocity the speed the object is traveling in
+	 * @param time the time the object takes to travel 
+	 * @return the distance it traveled
+	 */
 	public static double svtDistance(double velocity, double time) {
 		
 		return velocity * time;
 		
 	}
-	
+	/**
+	 * Calculates time with the help of the distance and velocity
+	 * @param distance the distance
+	 * @param velocity the velocity the object is traveling in
+	 * @return the time it took to travel
+	 */
 	public static double svtTime(double distance, double velocity) {
 		
 		return distance / velocity;
 		
 	}
-	
+	/**
+	 * Calculates the work performed with the help of the force and the distance
+	 * @param force the force needed
+	 * @param distance the distance traveled
+	 * @return the work done
+	 */
 	public static double work(double force, double distance) {
 		
 		return force * distance;
 		
 	
 	}
-	
+	/**
+	 * This method calculates the effect using work and time
+	 * @param work the work used
+	 * @param time under this time
+	 * @return the power used
+	 */
 	public static double power(double work, double time) {
 		
 		return work / time;
 		
 	}
-	
+	/**
+	 * Energy needed to heat a material up to a certain to a determined amount of degrees
+	 * @param solid the material
+	 * @param mass the mass of the material
+	 * @param deltaT the difference in time
+	 * @return the energy needed
+	 */
 	public static double heatSolid(SolidTable solid, double mass, double deltaT) {
 		
 		return solid.heatCapacity * mass * deltaT;
 		
 	}
-	
+	/**
+	 * Energy needed to heat a certain mass of a fluid to a set amount of degrees
+	 * @param fluid the fluid
+	 * @param mass the mass of the fluid
+	 * @param deltaT the difference in time
+	 * @return the energy needed
+	 */
 	public static double heatFluid(FluidTable fluid, double mass, double deltaT) {
 		
 		return fluid.heatCapacity * mass * deltaT;
 		
 	}
-	
+	/**
+	 * Energy needed to heat a certain mass of a gas to a set amount of degrees
+	 * @param gas the gas
+	 * @param mass the mass of gas
+	 * @param deltaT the differnce in time
+	 * @return the energy needed
+	 */
 	public static double heatGas(GasTable gas, double mass, double deltaT) {
 		
 		return gas.heatCapacity * mass * deltaT;
 		
 	}
-	
+	/**
+	 * Calculates how high an object with a certain velocity can reach
+	 * @param velocity the velocity of the object
+	 * @return the height of the object
+	 */
 	public static double velocityToHeight(double velocity) {
 		
 		return Math.pow(velocity, 2) / (2*g_swe);	
