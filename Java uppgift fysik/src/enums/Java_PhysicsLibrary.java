@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class Java_PhysicsLibrary {
 
 	static double g_swe = 9.82;
+	static double G = 6.67408*Math.pow(10, -11);
+	static double R = 8.3144621;
+	static double p_0 = 1000;
+	static double c = 299792458;
 	
 	public static void main(String[] args) {
 		
@@ -12,7 +16,7 @@ public class Java_PhysicsLibrary {
 		System.out.println("Thomas hinner:" + "\t" + svtDistance(2.7, 3000) + "m");
 		System.out.println("Energi till vatten:" + "\t" + heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint) + "J");
 		System.out.println("Totalt tryck" + "\t" + fluidPressure(FluidTable.WATER, 75 + "N"));
-		
+		System.out.println("Bollen flyger:" + "\t" + );
 		
 		
 		System.out.println(fahrenheitToCelsius(50.0));
@@ -39,7 +43,11 @@ public class Java_PhysicsLibrary {
 		
 			
 	}
-	//Metod för att konvertera fahrenheit till celsius
+	/**
+	 * Metod för att konvertera fahrenheit till celsius
+	 * @param farenheit grader i farenheit
+	 * @return skickar tillbaka celcius
+	 */
 	public static double fahrenheitToCelsius (double farenheit) {
 		double celcius = ((farenheit-32)*5)/9;
 		return celcius;
@@ -47,13 +55,22 @@ public class Java_PhysicsLibrary {
 	}
 	
 	
-	//Metod för att konvertera kelvin till celsius
+	/**
+	 * Metod för att konvertera kelvin till celsius
+	 * @param kelvin grader i kelvin
+	 * @return skickar tillbaka i celsius
+	 */
 	public static double kelvinToCelsius(double kelvin) {
 		double celcius = (kelvin-273.15);
 		return celcius;
 		
 	}
-	
+	/**
+	 * Metod för att räkna ut trycket i vattnet vid ett betämt djup
+	 * @param fluid vätskans densitet
+	 * @param deep djupet i meter
+	 * @return skickar tillbaka det beräknade trycket
+	 */
 	public static double fluidPressure(FluidTable fluid, double deep) {
 		
 		 double pressure = (fluid.density * g_swe * deep);
