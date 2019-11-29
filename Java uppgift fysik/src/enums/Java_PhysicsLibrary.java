@@ -16,30 +16,18 @@ public class Java_PhysicsLibrary {
 		System.out.println("Thomas hinner:" + "\t" + svtDistance(2.7, 3000) + "m");
 		System.out.println("Energi till vatten:" + "\t" + heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint) + "J");
 		System.out.println("Totalt tryck" + "\t" + fluidPressure(FluidTable.WATER, 75 + "N"));
-		System.out.println("Bollen flyger:" + "\t" + );
+		System.out.println("Bollen flyger:" + "\t" + velocityToHeight(16.667));
+		System.out.println("Effekten är:" + "\t" + power(work(Force(735.0),(100.0/3.6 * 4.8))));
+		System.out.println(Question7(1,12,0.5));
 		
+		//Hur mycket är 100 Kelvin i Celsius
+		System.out.println("Grader" + "\t" + kelvinToCelsius(100) + "C");
 		
-		System.out.println(fahrenheitToCelsius(50.0));
-		System.out.println(kelvinToCelsius(0.0));
-		System.out.println(fluidPressure(FluidTable.WATER, 10));
-		System.out.println(pressureUnderWater(10.0));
-		System.out.println(kineticEnergy(2,2));
-		System.out.println(potentialEnergy(2,5));
-		System.out.println(fallSpeed(2.5));
-		System.out.println(delta(5,1));
-		System.out.println(volumeToMass(FluidTable.WATER,1));
-		System.out.println(volumeToMassGas(GasTable.AIR,1));
-		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
-		System.out.println(svtVelocity(10,5));
-		System.out.println(svtDistance(10,5));
-		System.out.println(svtTime(10,2));
-		System.out.println(work(50,10));
-		System.out.println(power(1000,2));
-		System.out.println(heatSolid(SolidTable.IRON,1,2));
-		System.out.println(heatFluid(FluidTable.WATER,1,10));
-		System.out.println(heatGas(GasTable.AIR,1,1));
-		System.out.println(velocityToHeight(9.82));
+		//Hur långt har bilen färdats om den kör i 10 m/s i 50 sekunder
+		System.out.println("Bilen färdas:" + "\t" + svtDistance(10,50) + "m");
 		
+		//Vilken hastigheter hinner en Kissmiss uppnå om den släpps från 50 meter
+		System.out.println("Katten uppnår:"+ "\t" + fallSpeed(50) + "m/s");
 		
 			
 	}
@@ -273,4 +261,36 @@ public class Java_PhysicsLibrary {
 		return Math.pow(velocity, 2) / (2*g_swe);	
 		
 	}
+	
+	/**
+	 * Method for question to calculate force
+	 * @param mass the mass
+	 * @return the force
+	 */
+	public static double Force (double mass) {
+        return mass*g_swe;
+    }
+	
+	/**
+	 * Method for question 7
+	 * @param mass the mass of the ball
+	 * @param h the height of the ball
+	 * @param mH minimal height
+	 * @return
+	 */
+	public static int Question7 (double mass, double h,double mH) {
+		int studs = 0;
+
+
+
+		while ( h > mH) {
+
+		double E = mass* g_swe*h;
+		E = E * 0.99;
+		h = E/(mass * g_swe);
+		studs++;
+
+		}
+		return studs;
+		}
 }
