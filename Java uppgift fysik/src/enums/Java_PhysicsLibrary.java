@@ -15,9 +15,12 @@ public class Java_PhysicsLibrary {
 		System.out.println("Järn väger:" + "\t" + volumeToMassSolid(SolidTable.IRON, 0.06) + "kg");
 		System.out.println("Thomas hinner:" + "\t" + svtDistance(2.7, 3000) + "m");
 		System.out.println("Energi till vatten:" + "\t" + heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint) + "J");
-		System.out.println("Totalt tryck" + "\t" + fluidPressure(FluidTable.WATER, 75 + "N"));
+		System.out.println("Totalt tryck" + "\t" + fluidPressure(FluidTable.WATER, 75)  + "N");
 		System.out.println("Bollen flyger:" + "\t" + velocityToHeight(16.667));
-		System.out.println("Effekten är:" + "\t" + power(work(Force(735.0),(100.0/3.6 * 4.8))));
+		
+		//Ett värde för lite, har ej tid att lösa nu
+		//System.out.println("Effekten är:" + "\t" + power(work(Force(735.0),(100.0/3.6 * 4.8))));
+		
 		System.out.println(Question7(1,12,0.5));
 		
 		//Hur mycket är 100 Kelvin i Celsius
