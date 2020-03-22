@@ -17,7 +17,9 @@ public class Talspelet {
 		GameStarter();
 
 	}
-
+/**
+ * Metod för att starta och starta om spelet
+ */
 	public static void GameStarter() {
 		System.out.println("Välkommen till talspelet!");
 		System.out.println("Detta är ett spel som går ut på att gissa ett tal");
@@ -27,7 +29,9 @@ public class Talspelet {
 		Difficulty();
 
 	}
-
+/**
+ * Metod för att välja svårhetsgrad från 1-4
+ */
 	public static void Difficulty() {
 		System.out.println("Välj en svårhetsgrad: \n 1, Easy \n 2, Medium \n 3, Svår \n 4, Svårare");
 
@@ -46,7 +50,9 @@ public class Talspelet {
 		}
 
 	}
-
+/**
+ * Lättaste svårhetsgraden spelas i denna metod
+ */
 	public static void Easy() {
 
 		if (ChooseDifficulty == 1) {
@@ -81,7 +87,9 @@ public class Talspelet {
 			Restart();
 		}
 	}
-
+/**
+ * Medel svårhetsgraden spelas i denna metod 
+ */
 	public static void Medium() {
 
 		if (ChooseDifficulty == 2) {
@@ -123,7 +131,9 @@ public class Talspelet {
 		}
 
 	}
-
+/**
+ * Metod för svår svårhetsgrad
+ */
 	public static void Hard() {
 
 		System.out.println("Du har valt Svår, gissa mellan tal från 1-100");
@@ -151,7 +161,9 @@ public class Talspelet {
 		}
 		Restart();
 	}
-
+/**
+ * Metod för högsta svårhetsgraden
+ */
 	public static void Harder() {
 		System.out.println("Du har valt Svårare, gissa mellan tal från 1-1000");
 		System.out.println("När du når 10 gissningar förlorar du!");
@@ -185,7 +197,9 @@ public class Talspelet {
 		}
 		Restart();
 	}
-
+/**
+ * Denna metoden används för att starta om spelet eller avsluta det
+ */
 	public static void Restart() {
 		System.out.println("Skriv 1 för att spela igen \n Skriv 2 för att avsluta");
 		while (PlayAgain < 1 || PlayAgain > 2) {
@@ -205,7 +219,10 @@ public class Talspelet {
 		}
 
 	}
-
+/**
+ * Try catch metod som kollar så att spelaren inte skriver in en bokstav där det skall stå en siffra
+ * @return retunerar ErrorChecker då den har kollat så att det verkligen är en siffra och ingen boskstav
+ */
 	public static int ErrorMessage() {
 		while (true) {
 			try {
