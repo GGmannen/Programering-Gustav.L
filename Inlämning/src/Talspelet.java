@@ -12,8 +12,15 @@ public class Talspelet {
 	static int UserAnswear;
 	static int CorrectAnswear;
 	static int ErrorChecker;
+	static int PlayAgain;
+	
 	
 	public static void main(String[]args) {
+		GameStarter();
+		
+	}
+	
+	public static void GameStarter() {
 		System.out.println("Välkommen till talspelet!");
 		System.out.println("Detta är ett spel som går ut på att gissa ett tal");
 		System.out.println("Du kommer få ledtrådar om du svarar fel");
@@ -21,7 +28,9 @@ public class Talspelet {
 		String UserName = input.nextLine();
 		Difficulty();
 		
+		
 	}
+	
 	
 	public static void Difficulty() {
 		System.out.println("Välj en svårhetsgrad: \n 1, Easy \n 2, Medium \n 3, Svår \n 4, Svårare");
@@ -201,6 +210,20 @@ public class Talspelet {
 			
 		}
 	}
+	
+	public static void Restart() {
+		System.out.println("Skriv 1 för att spela igen \n Skriv 2 för att avsluta" );
+		int PlayAgain = ErrorMessage();
+		if (PlayAgain == 1) {
+			GameStarter();
+			
+		}
+		if (PlayAgain == 2) {
+			System.exit(0);
+			
+		}
+	}
+	
 	
 	public static int ErrorMessage () {
 		while(true) {
