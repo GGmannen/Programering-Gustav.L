@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class Talspelet {
+public class TEST {
 	
 	static Random rand = new Random();
 	static int Guesses = 0;
@@ -49,7 +49,7 @@ public class Talspelet {
 			int EasyAnswear = rand.nextInt(20) + 1;
 			while(UserAnswear != EasyAnswear) {
 				
-				System.out.println("Skriv in en siffra: ");
+			
 				int UserAnswear = input.nextInt();
 			
 				if (UserAnswear > EasyAnswear) {
@@ -65,11 +65,11 @@ public class Talspelet {
 			
 				else if (UserAnswear == EasyAnswear) {
 					System.out.println("Du gissade rätt din galning!");
-					break;
+					Endgame();
 				}
 			
 			}
-			Endgame();
+	
 			}
 		}	
 		
