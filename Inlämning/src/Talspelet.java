@@ -10,7 +10,8 @@ public class Talspelet {
 	static String UserName;
 	static int ChooseDifficulty;
 	static int UserAnswear;
-	
+	static int CorrectAnswear;
+	static int ErrorChecker;
 	
 	public static void main(String[]args) {
 		System.out.println("Välkommen till talspelet!");
@@ -19,7 +20,6 @@ public class Talspelet {
 		System.out.println("Vänligen fyll i ditt namn nedan: ");
 		String UserName = input.nextLine();
 		Difficulty();
-		Easy();
 		
 	}
 	
@@ -27,7 +27,7 @@ public class Talspelet {
 		System.out.println("Välj en svårhetsgrad: \n 1, Easy \n 2, Medium \n 3, Svår \n 4, Omöjlig");
 		
 		while (ChooseDifficulty < 1 || ChooseDifficulty > 4) {
-			  ChooseDifficulty = input.nextInt();
+			  ChooseDifficulty = ErrorMessage();
 			}
 			switch (ChooseDifficulty) {
 			  case 1: Easy();
@@ -46,24 +46,25 @@ public class Talspelet {
 		
 		if (ChooseDifficulty == 1) {
 			
-			int EasyAnswear = rand.nextInt(20) + 1;
-			while(UserAnswear != EasyAnswear) {
+			int CorrectAnswear = rand.nextInt(20) + 1;
+			while(UserAnswear != CorrectAnswear) {
+				Guesses++;
 				
 				System.out.println("Skriv in en siffra: ");
-				int UserAnswear = input.nextInt();
+				int UserAnswear = ErrorMessage();
 			
-				if (UserAnswear > EasyAnswear) {
+				if (UserAnswear > CorrectAnswear) {
 					System.out.println("Gissa lägre!");
 					System.out.println("Du har gissat:" + Guesses + "gånger");
 				}
 		
-				else if (UserAnswear < EasyAnswear) {
+				else if (UserAnswear < CorrectAnswear) {
 					System.out.println("Gissa högre!");
 					System.out.println("Du har gissat:" + Guesses + "gånger");
 				
 				}
 			
-				else if (UserAnswear == EasyAnswear) {
+				else if (UserAnswear == CorrectAnswear) {
 					System.out.println("Du gissade rätt din galning!");
 					break;
 				}
@@ -77,32 +78,76 @@ public class Talspelet {
 		
 		if(ChooseDifficulty == 2) {
 			
-			int MediumAnswear = rand.nextInt(100) + 1;
+			System.out.println("Du har valt Medium, gissa mellan tal från 1-100");
+			System.out.println("När du når 20 gissningar förlorar du!");
 			
-			if (UserAnswear > MediumAnswear) {
-				System.out.println("Gissa lägre!");
-				System.out.println("Du har gissat:" + Guesses + "gånger");
+			int CorrectAnswear = rand.nextInt(100) + 1;
+			
+			while (UserAnswear != CorrectAnswear) {
+				if(Guesses == 15) {
+					break;
+				}
+				Guesses++;
+				System.out.println("Skriv in en siffra: ");
+				int UserAnswear = ErrorMessage();
+			
+				if (UserAnswear > CorrectAnswear+10) {
+					System.out.println("Du är inte nära!");
+					System.out.println("Du har gissat:" + Guesses + "gånger");
+				}
+		
+				else if (UserAnswear < CorrectAnswear-10) {
+					System.out.println("Du är inte nära!");
+					System.out.println("Du har gissat:" + Guesses + "gånger");
+				
+				}
+				
+				else if (UserAnswear > CorrectAnswear || UserAnswear < CorrectAnswear) {
+					System.out.println("Du är nära!");
+					
+				}
+				else {
+					break;
+					
+				}
+			}
+			Endgame();
 			}
 			
-			else if (UserAnswear < MediumAnswear) {
-				System.out.println("Gissa högre!");
-				System.out.println("Du har gissat:" + Guesses + "gånger");
-			}
-			else if (UserAnswear == MediumAnswear) {
-				System.out.println("Du gissade rätt!");
-				Endgame();
-			}
 			
 		}
 		
-	}
+	
 	
 	
 	public static void Endgame() {
+		if (UserAnswear == CorrectAnswear) {
+			System.out.println("Grattis");
+			
+		}
 		
-		
+		else {
+			System.out.println("Du suger");
+			
+			
+		}
 	}
 	
+	public static int ErrorMessage () {
+		while(true) {
+			try {
+				ErrorChecker = input.nextInt();
+				break;
+				
+			}
+			catch(Exception InputMismatchException) {
+				
+				System.out.println("Skriv in en siffra istället din nöt");
+				input.next();
+			}
+		}
+		return ErrorChecker;
+	}
 	
 	}
 	
