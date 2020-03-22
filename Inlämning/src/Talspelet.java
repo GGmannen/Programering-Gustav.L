@@ -24,7 +24,7 @@ public class Talspelet {
 	}
 	
 	public static void Difficulty() {
-		System.out.println("Välj en svårhetsgrad: \n 1, Easy \n 2, Medium \n 3, Svår \n 4, Omöjlig");
+		System.out.println("Välj en svårhetsgrad: \n 1, Easy \n 2, Medium \n 3, Svår \n 4, Svårare");
 		
 		while (ChooseDifficulty < 1 || ChooseDifficulty > 4) {
 			  ChooseDifficulty = ErrorMessage();
@@ -32,7 +32,8 @@ public class Talspelet {
 			switch (ChooseDifficulty) {
 			  case 1: Easy();
 			  case 2: Medium();
-			  
+			  case 3: Hard();
+			  case 4: Harder();
 			}
 		
 		
@@ -79,7 +80,7 @@ public class Talspelet {
 		if(ChooseDifficulty == 2) {
 			
 			System.out.println("Du har valt Medium, gissa mellan tal från 1-100");
-			System.out.println("När du når 20 gissningar förlorar du!");
+			System.out.println("När du når 15 gissningar förlorar du!");
 			
 			int CorrectAnswear = rand.nextInt(100) + 1;
 			
@@ -116,6 +117,74 @@ public class Talspelet {
 			
 			
 		}
+		
+	public static void Hard() {
+		
+		System.out.println("Du har valt Svår, gissa mellan tal från 1-100");
+		System.out.println("När du når 15 gissningar förlorar du!");
+		
+		int CorrectAnswear = rand.nextInt(100) + 1;
+		
+		while (UserAnswear != CorrectAnswear) {
+			if(Guesses == 15) {
+				break;
+			}
+			Guesses++;
+			System.out.println("Skriv in en siffra: ");
+			int UserAnswear = ErrorMessage();
+		
+			if (UserAnswear != CorrectAnswear) {
+				System.out.println("Du gissade fel.");
+				System.out.println("Du har gissat:" + Guesses + "gånger");
+			
+				
+			}
+			else {
+				break;
+				
+			}
+		}
+		Endgame();
+		}
+		
+		
+		public static void Harder() {
+			System.out.println("Du har valt Svårare, gissa mellan tal från 1-1000");
+			System.out.println("När du når 10 gissningar förlorar du!");
+			
+			int CorrectAnswear = rand.nextInt(1000) + 1;
+			
+			while (UserAnswear != CorrectAnswear) {
+				if(Guesses == 10) {
+					break;
+				}
+				Guesses++;
+				System.out.println("Skriv in en siffra: ");
+				int UserAnswear = ErrorMessage();
+			
+				if (CorrectAnswear % UserAnswear == 0) {
+					System.out.println("Rätt svar är jämnt delbart med din gissning");
+					System.out.println("Du har gissat:" + Guesses + "gånger");
+				
+					
+				}
+				
+				else if(CorrectAnswear % UserAnswear != 0) {
+				System.out.println("Rätt svar är inte jämnt delbart med din gissning");
+				System.out.println("Du har gissat:" + Guesses + "gånger");
+				}
+				
+				
+				else {
+					break;
+					
+				}
+			}
+			Endgame();
+			}
+			
+		
+		
 		
 	
 	
