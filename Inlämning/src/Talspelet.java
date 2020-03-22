@@ -56,6 +56,9 @@ public class Talspelet {
 		
 		if (ChooseDifficulty == 1) {
 			
+			System.out.println("Du har valt Easy, gissa mellan 1-20");
+			System.out.println("Du har oändligt med gissningar på dig!");
+			
 			int CorrectAnswear = rand.nextInt(20) + 1;
 			while(UserAnswear != CorrectAnswear) {
 				Guesses++;
@@ -114,7 +117,7 @@ public class Talspelet {
 				
 				else if (UserAnswear > CorrectAnswear || UserAnswear < CorrectAnswear) {
 					System.out.println("Du är nära!");
-					
+					System.out.println("Du har gissat:" + Guesses + "gånger");
 				}
 				else {
 					break;
@@ -201,27 +204,36 @@ public class Talspelet {
 	public static void Endgame() {
 		if (UserAnswear == CorrectAnswear) {
 			System.out.println("Grattis");
-			
+			Restart();
 		}
 		
 		else {
 			System.out.println("Du suger");
-			
+			Restart();
 			
 		}
 	}
 	
 	public static void Restart() {
 		System.out.println("Skriv 1 för att spela igen \n Skriv 2 för att avsluta" );
+		while(PlayAgain < 1 || PlayAgain > 2) {
+			
+		
 		int PlayAgain = ErrorMessage();
 		if (PlayAgain == 1) {
+			Guesses = 0;
+			ChooseDifficulty= 0;
+			CorrectAnswear = 0;
 			GameStarter();
 			
 		}
-		if (PlayAgain == 2) {
+		else if (PlayAgain == 2) {
 			System.exit(0);
 			
 		}
+		
+		}
+		
 	}
 	
 	
