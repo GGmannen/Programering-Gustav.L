@@ -6,9 +6,17 @@ public class Talspelet {
 	
 	static Random rand = new Random();
 	static int Guesses = 0;
-	
+	static Scanner input = new Scanner (System.in);
+	static String UserName;
+	static int ChooseDifficulty;
+	static int UserAnswear;
 	
 	public static void main(String[]args) {
+		System.out.println("Välkommen till talspelet!");
+		System.out.println("Detta är ett spel som går ut på att gissa ett tal");
+		System.out.println("Du kommer få ledtrådar om du svarar fel");
+		System.out.println("Vänligen fyll i ditt namn nedan: ");
+		String UserName = input.nextLine();
 		Difficulty();
 		
 		
@@ -17,6 +25,14 @@ public class Talspelet {
 	public static void Difficulty() {
 		System.out.println("Välj en svårhetsgrad: \n 1, Easy \n 2, Medium \n 3, Svår \n 4, Omöjlig");
 		System.out.println("Skriv en siffra från 1-4");
+		while (true) {
+			if (ChooseDifficulty == 1 || ChooseDifficulty == 2 || ChooseDifficulty == 3 || ChooseDifficulty == 4) {
+				
+				break;
+			}
+			
+			
+		}
 		
 		
 	}
@@ -26,17 +42,39 @@ public class Talspelet {
 	
 	
 	public static int Easy() {
-		int EasyAnswear = rand.nextInt(20) + 1;
-		System.out.println(EasyAnswear);
 		
-		while (Guesses != EasyAnswear) {
-			System.out.println("Skriv in en siffra: ");
-			Guesses++;
+		if (ChooseDifficulty == 1) {
 			
-		}
+			int EasyAnswear = rand.nextInt(20) + 1;
+			
+			if (UserAnswear > EasyAnswear) {
+				System.out.println("Gissa lägre!");
+				System.out.println("Du har gissat:" + Guesses + "gånger");
+			}
+		
+			else if (UserAnswear < EasyAnswear) {
+			System.out.println("Gissa högre!");
+			System.out.println("Du har gissat:" + Guesses + "gånger");
+				
+			}
+			
+			else if (UserAnswear == EasyAnswear) {
+				System.out.println("Du gissade rätt din galning!");
+				
+			}
+			
+			
+			while (Guesses != EasyAnswear) {
+				System.out.println("Skriv in en siffra: ");
+				Guesses++;
+			
+			}
 		
 		
 		return EasyAnswear;
-	}	
+	
+			}
+		}	
+		
 	}
 	
