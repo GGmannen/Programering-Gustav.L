@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class HangmanDude {
 
-	
 	static Random random = new Random();
 	static int amountWrongs = 0;
+	static int maxWrongs = 8;
 	static int wordCategory = 0;
 	static String playerGuess = "";
 	static String gameWord;
@@ -30,33 +30,29 @@ public class HangmanDude {
 
 	public static void chooseWordCategory() {
 
-		System.out.println("Välj Kategori: 1, Bilmärken \n 2, Färger \n 3,  ");
-		
+		System.out.println("Choose category: 1, Car brands \n 2, Colors \n 3, Animals  ");
+
 		while (wordCategory < 1 || wordCategory > 4) {
+
+			wordCategory = input.nextInt();
+
+			switch (wordCategory) {
+			case 1:
+				Cars();
+			case 2:
+				Colors();
+			case 3:
+				Animals();
+			case 4:
+				
+			}
 		}
-		
-		wordCategory = input.nextInt();
-		
-		switch (wordCategory) {
-		case 1:
-			Cars();
-		case 2:
-			Colors();
-		case 3:
-
-		case 4:
-
-		}
-
 	}
 
 	public static void Cars() {
 
-			
-		if(wordCategory == 1) {
-			
-		
-		
+		if (wordCategory == 1) {
+
 			ArrayList<String> cars = new ArrayList<String>();
 			cars.add("Volvo");
 			cars.add("Porsche");
@@ -64,20 +60,27 @@ public class HangmanDude {
 			cars.add("Corvette");
 			cars.add("Koenigsegg");
 			cars.add("Bugatti");
+			cars.add("Mercedes");
+			cars.add("Lamborghini");
+			cars.add("Mclaren");
+			cars.add("Hennesey");
+			cars.add("Rimac");
+			cars.add("Maserati");
+			cars.add("Saab");
+			
 
 			for (int i = 0; i < 1; i++) {
 				gameWord = (cars.get(random.nextInt(cars.size())));
 			}
-			System.out.println(gameWord);
+			gamePlayer();
 		}
 
 	}
 
-	
 	public static void Colors() {
-		
-		
-			
+
+		if (wordCategory == 2) {
+
 			ArrayList<String> colors = new ArrayList<String>();
 			colors.add("Yellow");
 			colors.add("Pink");
@@ -88,18 +91,51 @@ public class HangmanDude {
 			colors.add("Brown");
 			colors.add("Orange");
 			colors.add("White");
-			
+			colors.add("Red");
+			colors.add("Turquoise");
+
 			for (int i = 0; i < 1; i++) {
 				gameWord = (colors.get(random.nextInt(colors.size())));
 			}
 			System.out.println(gameWord);
-			
-		
+			gamePlayer();
+		}
+	}
+
+	public static void Animals() {
+
+		if (wordCategory == 3) {
+
+			ArrayList<String> colors = new ArrayList<String>();
+			colors.add("Tiger");
+			colors.add("Panda");
+			colors.add("Cat");
+			colors.add("Dog");
+			colors.add("Parrot");
+			colors.add("Rabbit");
+			colors.add("Horse");
+			colors.add("Spider");
+			colors.add("Gorilla");
+			colors.add("Hamster");
+			colors.add("Pig");
+			colors.add("Cow");
+			colors.add("Elephant");
+			colors.add("Giraffe");
+			colors.add("Mouse");
+			colors.add("Rat");
+
+			for (int i = 0; i < 1; i++) {
+				gameWord = (colors.get(random.nextInt(colors.size())));
+			}
+			System.out.println(gameWord);
+			gamePlayer();
+		}
+	}
+	
+	public static void gamePlayer() {
+
 		
 		
 	}
-	
-	
-	
-	
+
 }
