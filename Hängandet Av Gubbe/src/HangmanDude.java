@@ -12,7 +12,9 @@ public class HangmanDude {
 	static String gameWord;
 	static Random rand = new Random();
 	static Scanner input = new Scanner(System.in);
-
+	static int playAgain;
+	
+	
 	public static void main(String[] args) {
 		welcomer();
 
@@ -106,26 +108,26 @@ public class HangmanDude {
 
 		if (wordCategory == 3) {
 
-			ArrayList<String> colors = new ArrayList<String>();
-			colors.add("Tiger");
-			colors.add("Panda");
-			colors.add("Cat");
-			colors.add("Dog");
-			colors.add("Parrot");
-			colors.add("Rabbit");
-			colors.add("Horse");
-			colors.add("Spider");
-			colors.add("Gorilla");
-			colors.add("Hamster");
-			colors.add("Pig");
-			colors.add("Cow");
-			colors.add("Elephant");
-			colors.add("Giraffe");
-			colors.add("Mouse");
-			colors.add("Rat");
+			ArrayList<String> animals = new ArrayList<String>();
+			animals.add("Tiger");
+			animals.add("Panda");
+			animals.add("Cat");
+			animals.add("Dog");
+			animals.add("Parrot");
+			animals.add("Rabbit");
+			animals.add("Horse");
+			animals.add("Spider");
+			animals.add("Gorilla");
+			animals.add("Hamster");
+			animals.add("Pig");
+			animals.add("Cow");
+			animals.add("Elephant");
+			animals.add("Giraffe");
+			animals.add("Mouse");
+			animals.add("Rat");
 
 			for (int i = 0; i < 1; i++) {
-				gameWord = (colors.get(random.nextInt(colors.size())));
+				gameWord = (animals.get(random.nextInt(animals.size())));
 			}
 			System.out.println(gameWord);
 			gamePlayer();
@@ -133,9 +135,36 @@ public class HangmanDude {
 	}
 	
 	public static void gamePlayer() {
-
+																																																			
 		
 		
 	}
 
+	
+	public static void gameEnder() {
+		
+		System.out.println("Type: 1, To play again \n 2, to quit the game");
+		while(playAgain < 1 || playAgain > 2 ) {
+			
+			playAgain = input.nextInt();
+			
+			if(playAgain == 1) {
+				amountWrongs = 0;
+				wordCategory = 0;
+				gameWord = "";
+				playAgain = 0;
+				chooseWordCategory();
+			}
+			else if(playAgain == 2) {
+				System.exit(0);
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	
+	
 }
