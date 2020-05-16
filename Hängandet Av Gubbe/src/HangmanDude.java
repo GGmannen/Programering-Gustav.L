@@ -10,14 +10,24 @@ public class HangmanDude {
 	static int wordCategory = 0;
 	static String playerGuess = "";
 	static String gameWord = "hejsan";
+	static String displayWord = "";
 	static Random rand = new Random();
 	static Scanner input = new Scanner(System.in);
 	static int playAgain;
 	static ArrayList<String> guessedLetters = new ArrayList<>();
 
 	public static void main(String[] args) {
-		gamePlayer();
+		welcomer();
+		playGame();
+		
 
+	}
+
+	private static void playGame() {
+		chooseWordCategory();
+		initdisplayword();
+		gamePlayer();
+		gameEnder();
 	}
 
 	public static void welcomer() {
@@ -26,7 +36,6 @@ public class HangmanDude {
 		System.out.println("If your guess is wrong, the man will be hung");
 		System.out.println("You guess one letter at a time, if you guess the entire word correct you win");
 		System.out.println("GLHF!");
-		chooseWordCategory();
 
 	}
 
@@ -37,15 +46,18 @@ public class HangmanDude {
 		while (wordCategory < 1 || wordCategory > 4) {
 
 			wordCategory = input.nextInt();
-
+			input.nextLine();
+			
 			switch (wordCategory) {
 			case 1:
 				Cars();
+				break;
 			case 2:
 				Colors();
+				break;
 			case 3:
 				Animals();
-			case 4:
+				break;
 
 			}
 		}
@@ -70,10 +82,8 @@ public class HangmanDude {
 			cars.add("MASERATI");
 			cars.add("SAAB");
 
-			for (int i = 0; i < 1; i++) {
-				gameWord = (cars.get(random.nextInt(cars.size())));
-			}
-			gamePlayer();
+			gameWord = cars.get(random.nextInt(cars.size()));
+
 		}
 
 	}
@@ -95,11 +105,10 @@ public class HangmanDude {
 			colors.add("RED");
 			colors.add("TURQUOISE");
 
-			for (int i = 0; i < 1; i++) {
+			
 				gameWord = (colors.get(random.nextInt(colors.size())));
-			}
-			System.out.println(gameWord);
-			gamePlayer();
+			
+			
 		}
 	}
 
@@ -125,38 +134,77 @@ public class HangmanDude {
 			animals.add("MOUSE");
 			animals.add("RAT");
 
-			for (int i = 0; i < 1; i++) {
-				gameWord = (animals.get(random.nextInt(animals.size())));
-			}
-			System.out.println(gameWord);
-			gamePlayer();
+			
+				gameWord = animals.get(random.nextInt(animals.size()));
+			
+			
+
+		}
+	}
+
+	private static void initdisplayword() {
+		displayWord = "";
+
+		for (int i = 0; i < gameWord.length(); i++) {
+
+			displayWord += "_";
+
 		}
 	}
 
 	public static void gamePlayer() {
 
-		for (int i = 0; i < gameWord.length(); i++) {
-			System.out.print("_ ");
+		for (int i = 0; i < maxWrongs; i++) {
+			System.out.println("Enter a letter:");
+			playerGuess = input.nextLine();
+			playerGuess = playerGuess.toUpperCase();
+
+			if (!guessedLetters.contains(playerGuess)) {
+
+				guessedLetters.add(playerGuess);
+
+				updatedisplayWord(playerGuess);
+				System.out.println(displayWord);
+				
+				if (gameWord.equals(displayWord)) {
+					//vinst
+					break;
+				}
+
+				if (gameWord.contains(playerGuess)) {
+					//gissat rätt
+					System.out.println("Correct");
+					i--;
+					
+				}
+
+				else {
+				//felgissning	
+					System.out.println("Wrong, try again!");
+				}
+
+			}
+			else {
+				
+				System.out.println("You already guessed this, retard!");
+				i--;
+			}
 		}
 
-		playerGuess = input.nextLine();
-		playerGuess = playerGuess.toUpperCase();
+	}
 
-		if (!guessedLetters.contains(playerGuess)) {
+	private static void updatedisplayWord(String playerGuess2) {
+		char[] displayWordArray = displayWord.toCharArray();
+		for (int i = 0; i < gameWord.length(); i++) {
+			if (gameWord.charAt(i) == playerGuess.charAt(0)) {
 
-			guessedLetters.add(playerGuess);
-
-			if (gameWord.contains(playerGuess)) {
+				displayWordArray[i] = playerGuess.charAt(0);
 
 			}
 			
-			else {
-				amountWrongs ++;
-				
-			}
 
 		}
-
+		displayWord = new String(displayWordArray);
 	}
 
 	public static void gameEnder() {
@@ -165,13 +213,15 @@ public class HangmanDude {
 		while (playAgain < 1 || playAgain > 2) {
 
 			playAgain = input.nextInt();
-
+			input.nextLine();
+			
 			if (playAgain == 1) {
 				amountWrongs = 0;
 				wordCategory = 0;
 				gameWord = "";
 				playAgain = 0;
-				chooseWordCategory();
+				guessedLetters.clear();
+				playGame();
 			} else if (playAgain == 2) {
 				System.exit(0);
 
