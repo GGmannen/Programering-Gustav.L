@@ -17,12 +17,22 @@ public class HangmanDude {
 	static int ErrorChecker;
 	static ArrayList<String> guessedLetters = new ArrayList<>();
 
+	
+	/**
+	 * Main metod som enbart anroppar det första metoderna vilket är welcomer och sedan playGame där hela
+	 * sköts
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		welcomer();
 		playGame();
 
 	}
 
+	
+	/**
+	 * denna metod anropppar allt annat i spelet och får det att flyta på. Anroppar val av kategori osv
+	 */
 	private static void playGame() {
 		chooseWordCategory();
 		initdisplayword();
@@ -30,6 +40,11 @@ public class HangmanDude {
 		gameEnder();
 	}
 
+	
+	/**
+	 * Metod för att välkommna spelaren, finns enbart syso här för att förklara hur spelet fungerar
+	 * och ingen direkt funktionallitet krävs i denna metod.
+	 */
 	public static void welcomer() {
 		System.out.println("Welcome to a game about the hanging of a man!");
 		System.out.println("You are supposed to guess on letters in different words");
@@ -39,6 +54,11 @@ public class HangmanDude {
 
 	}
 
+	/**
+	 * Första metoden med funktionalitet hittar vi här. Denna metoden låter spelaren välja en kategori
+	 * genom en switch och 4 st olika cases. Detta fungerar genom en input från spelaren som dessutom kollas
+	 * med en try catch exeption för att spelet inte skall crasha om spelaren skriver in en bokstav
+	 */
 	public static void chooseWordCategory() {
 
 		System.out.println("Choose category: 1, Car brands \n 2, Colors \n 3, Animals  \n 4, Multiplayer");
@@ -66,6 +86,11 @@ public class HangmanDude {
 		}
 	}
 
+	/**
+	 * Denna metod anroppas om spelaren väljer bil-märken kategorin. I denna metoden finner vi en lista
+	 * där olika bil-märken har sparats. I slutet av denna metod så randomiserar jag fram ett random ord
+	 * med hjälp av random classen som jag importerade i början av koden
+	 */
 	public static void Cars() {
 
 		ArrayList<String> cars = new ArrayList<String>();
@@ -86,7 +111,10 @@ public class HangmanDude {
 		gameWord = cars.get(random.nextInt(cars.size()));
 
 	}
-
+	/**
+	* Samma sorts metoden som den ovan. Skillnaden är att denna handlar om färger istället för bilar. 
+	* Allt är samma förutom vad själva listan är fylld med
+	*/
 	public static void Colors() {
 
 		ArrayList<String> colors = new ArrayList<String>();
@@ -105,7 +133,10 @@ public class HangmanDude {
 		gameWord = (colors.get(random.nextInt(colors.size())));
 
 	}
-
+	/**
+	 * Samma gäller här igen. En lista som är fylld med djur istället och sedan randomiserar fram ett ord
+	 * med hjälp av random klassen
+	 */
 	public static void Animals() {
 
 		ArrayList<String> animals = new ArrayList<String>();
@@ -129,7 +160,11 @@ public class HangmanDude {
 		gameWord = animals.get(random.nextInt(animals.size()));
 
 	}
-
+	/**
+	 * Denna metod är för flerspelarläge då en spelare anger ett ord och deras kompis får sedan gissa på 
+	 * detta ordet. Väldigt simpel kod, en input från spelaren som sedan konverteras till stora bokstäver
+	 * så att det inte spelar någon roll om spelaren skriver med stora eller små bokstäver
+	 */
 	public static void Multiplayer() {
 
 		
@@ -140,6 +175,10 @@ public class HangmanDude {
 
 	}
 
+	/**
+	 * Metod för att få understräck mellan bokstäver och visa för användaren hur många bokstäver som finns
+	 * i ordet
+	 */
 	private static void initdisplayword() {
 		displayWord = "";
 
@@ -149,7 +188,12 @@ public class HangmanDude {
 
 		}
 	}
-
+	/**
+	 * Metoden där själva spelet kommer ta plats. Börjar med att hoppa in i en for loop som körs tills
+	 * maxWrongs har nåtts. Detta ger spelaren möjlighet att ha fel 7 gånger innan spelet tar slut. Metoden
+	 * innehåller input, och kollar om bokstaven gissat på detta innan och alla andra möjliga saker för att 
+	 * spelet skall fungera
+	 */
 	public static void gamePlayer() {
 
 		for (int i = 0; i < maxWrongs; i++) {
@@ -233,7 +277,13 @@ public class HangmanDude {
 		}
 
 	}
-
+	
+	/**
+	 * Denna metod används för att bokstaven som spelaren gissar på skall hamna på rätt ställe i ordet
+	 * tex om ordet är hej och spelaren gissar på ett e så gör denna metod så att programmet vet att
+	 * bokstaven e står mitt i ordet och sparar detta i displayWord variablen
+	 * @param playerGuess2
+	 */
 	private static void updatedisplayWord(String playerGuess2) {
 		char[] displayWordArray = displayWord.toCharArray();
 		for (int i = 0; i < gameWord.length(); i++) {
@@ -247,6 +297,10 @@ public class HangmanDude {
 		displayWord = new String(displayWordArray);
 	}
 
+	/**
+	 * Metoden för att avsluta spelet, denna metod visar vilket ord som var rätt och det som spelaren har 
+	 * gissat fram till, sen finns också möjligheten att starta om spelet eller avsluta det
+	 */
 	public static void gameEnder() {
 
 		System.out.println("The word was:" + "\t" + gameWord);
@@ -255,7 +309,7 @@ public class HangmanDude {
 		System.out.println("Type: 1, To play again \n 2, To quit the game");
 		while (playAgain < 1 || playAgain > 2) {
 
-			playAgain = input.nextInt();
+			playAgain = ErrorMessage();
 			input.nextLine();
 
 			if (playAgain == 1) {
@@ -274,6 +328,11 @@ public class HangmanDude {
 
 	}
 
+	/**
+	 * metod för att kolla så att en siffra skrivs in där det skall vara en siffra så om spelaren försöker
+	 * skriva in en bokstav så kommer spelet inte att crasha
+	 * @return
+	 */
 	public static int ErrorMessage() {
 		while (true) {
 			try {
